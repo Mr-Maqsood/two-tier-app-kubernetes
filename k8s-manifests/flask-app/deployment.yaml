@@ -14,16 +14,13 @@ spec:
         app: flask
     spec:
       containers:
-      - name: flask
-        image: maqsoodbangash/two-tier-app:v1
-        env:
-          - name: MYSQL_HOST
-            value: "mysql-service.mysql-db.svc.cluster.local"
-          - name: MYSQL_PASSWORD
-            value: "admin"
-          - name: MYSQL_USER
-            value: "root"
-          - name: MYSQL_DB
-            value: "mysql"
-        ports:
-          - containerPort: 5000  
+        - name: flask
+          image: maqsoodbangash/two-tier-app:v2
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - secretRef:
+                name: mysql-secret
+            - configMapRef:
+                name: mysql-config
+   
