@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: flask
-          image: maqsoodbangash/two-tier-app:v2
+          image: maqsoodbangash/two-tier-app:v3
           ports:
             - containerPort: 5000
           envFrom:
